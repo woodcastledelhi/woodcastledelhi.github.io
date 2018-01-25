@@ -1,0 +1,153 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Create Bill
+  </h1>
+  <ol class="breadcrumb">
+  <li><a href="#/bill"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Create Bill</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-info">
+        <div class="box-header with-border">
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal">
+          <div class="box-body">
+          <div class="alert alert-danger alert-dismissable" id="errorMsg" style="display:none;">{{errorMsg}}</div>
+            <div class="form-group" ng-class="{'has-error' : isHotelValid != 'default'}">
+              <label for="hotelName" class="col-sm-2 control-label" >Hotel Name</label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="hotelName" >
+                    <option value="none">Select Hotel</option>
+					<option value="woodcastle" >Wood Castle, Delhi</option>
+                    <option value="castleGrand" >Wood Castle Grand</option>
+                  </select>
+              </div>
+            </div>
+			<div class="form-group" ng-class="{'has-error' : isCustomerNameValid != 'default'}">
+              <label for="customerName" class="col-sm-2 control-label" >Customer Name<i class="mandatory">*</i></label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="customerName"  placeholder="Please enter customer name">
+                <p class="help-block" ng-if="isCustomerNameValid=='blank'">Please enter customer name.</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : isGstinValid != 'default'}">
+              <label for="cGstin" class="col-sm-2 control-label">Guest's GSTIN</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="cGstin"  placeholder="Please enter customer's GSTIN" >
+                <p class="help-block" ng-if="isGstinValid=='blank'">Please enter customer's GSTIN.</p>
+              </div>
+            </div>
+            
+           <div class="form-group" ng-class="{'has-error' : isAddressValid != 'default'}">
+            <label for="address" class="col-sm-2 control-label">Address<i class="mandatory">*</i></label>
+            <div class="col-sm-6">
+              <textarea placeholder="Please enter address" ng-model="address" rows="3" class="form-control"></textarea>
+              <p class="help-block" ng-if="isAddressValid=='blank'">Please enter address.</p>
+            </div>
+          </div>
+		  <div class="form-group" ng-class="{'has-error' : isInstructionValid != 'default'}">
+            <label for="instructions" class="col-sm-2 control-label">Other Instructions</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" ng-model="instructions"  placeholder="Please enter other instructions" >
+              <p class="help-block" ng-if="isInstructionValid=='blank'">Please enter other instructions.</p>
+            </div>
+          </div>
+		<div class="form-group" ng-class="{'has-error' : isDateRangeValid != 'default'}">
+			<label for="dateRange" class="col-sm-2 control-label">Date:<i class="mandatory">*</i></label>
+			<div class="col-sm-2 selDate">
+			   <input class="form-control" type="text" id="daterange" placeholder="Please select date">
+			</div>
+		</div>
+		<div class="form-group" ng-class="{'has-error' : isADateRangeValid != 'default'}">
+			<label for="aDateRange" class="col-sm-2 control-label">Date of Arrival and Departure:<i class="mandatory">*</i></label>
+			<div class="col-sm-2 selDate">
+			   <input class="form-control" type="text" id="daterange-btn" placeholder="Please select Date of Arrival and Departure">
+			</div>
+			<div class="col-sm-2 selDate">
+			   <input class="form-control" type="number" ng-model="arrivalTime" placeholder="Please enter arrival time">
+			</div>
+			<div class="col-sm-2">
+			   <input class="form-control" type="number" ng-model="departureTime" placeholder="Please enter departure time">
+			</div>
+		</div>
+		  <div class="form-group" ng-class="{'has-error' : isPersonValid != 'default'}">
+            <label for="personNo" class="col-sm-2 control-label">No. of Person:<i class="mandatory">*</i></label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" ng-model="personNo"  placeholder="Please enter number of person" >
+              <p class="help-block" ng-if="isPersonValid=='blank'">Please enter number of person.</p>
+            </div>
+          </div>
+            <div class="form-group" ng-class="{'has-error' : isRoomValid != 'default'}">
+            <label for="roomNo" class="col-sm-2 control-label">Room No.:<i class="mandatory">*</i></label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" ng-model="roomNo"  placeholder="Please enter room number" >
+              <p class="help-block" ng-if="isRoomValid=='blank'">Please enter room no.</p>
+            </div>
+          </div>
+		  <div class="form-group" ng-class="{'has-error' : isNoOfRoomsValid != 'default'}">
+            <label for="noOfRooms" class="col-sm-2 control-label">No of Rooms:<i class="mandatory">*</i></label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" ng-model="noOfRooms"  placeholder="Please enter no of rooms" >
+              <p class="help-block" ng-if="isNoOfRoomsValid=='blank'">Please enter no of rooms </p>
+            </div>
+          </div>
+		  <div class="form-group" ng-class="{'has-error' : isRoomRentValid != 'default'}">
+            <label for="roomRent" class="col-sm-2 control-label">Room Rent:<i class="mandatory">*</i></label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" ng-model="roomRent"  placeholder="Please enter room rent" >
+              <p class="help-block" ng-if="isRoomRentValid=='blank'">Please enter room rent</p>
+            </div>
+          </div>
+		  <div class="form-group" ng-class="{'has-error' : isExtraBedValid != 'default'}">
+            <label for="extraBed" class="col-sm-2 control-label">Extra Bed:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" ng-model="extraBed"  placeholder="Please enter extra bed" >
+              <p class="help-block" ng-if="isExtraBedValid=='blank'">Please enter number of extra bed.</p>
+            </div>
+          </div>
+		  <div class="form-group" ng-class="{'has-error' : isMiscSundryValid != 'default'}">
+            <label for="miscSundry" class="col-sm-2 control-label">Misc. Sundry:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" ng-model="miscSundry"  placeholder="Please enter misc sundry (if any)" >
+              <p class="help-block" ng-if="isMiscSundryValid=='blank'">Please enter misc sundry.</p>
+            </div>
+          </div>
+		  <div class="form-group" ng-class="{'has-error' : isDiscountValid != 'default'}">
+            <label for="discount" class="col-sm-2 control-label">Less Discount:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" ng-model="discount"  placeholder="Please enter discount (if any)" >
+              <p class="help-block" ng-if="isDiscountValid=='blank'">Please enter discount.</p>
+            </div>
+          </div><div class="form-group" ng-class="{'has-error' : isOtherChargesValid != 'default'}">
+            <label for="otherCharges" class="col-sm-2 control-label">Other Charges:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" ng-model="otherCharges"  placeholder="Please enter other charges (if any)" >
+              <p class="help-block" ng-if="isOtherChargesValid=='blank'">Please enter other charges.</p>
+            </div>
+          </div>
+		  <div class="form-group" ng-class="{'has-error' : isLessAdvanceValid != 'default'}">
+            <label for="lessAdvance" class="col-sm-2 control-label">Less Advance:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" ng-model="lessAdvance"  placeholder="Please enter advance amount (if any)" >
+              <p class="help-block" ng-if="isLessAdvanceValid=='blank'">Please enter advance amount.</p>
+            </div>
+          </div>
+          </div><!-- /.box-body -->
+          <div class="box-footer posRel">
+            <button type="button" class="btn btn-primary pull-left" ng-click="saveBill()">Save Bill</button>
+          </div><!-- /.box-footer -->
+        </form>
+        <div class="overlay" ng-show="loadingState">
+          <i class="fa fa-refresh fa-spin"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>  
+</section>

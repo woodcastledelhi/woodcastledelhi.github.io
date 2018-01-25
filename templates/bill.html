@@ -1,0 +1,56 @@
+﻿<section class="content-header">
+  <h1>
+    Bills
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#/bill"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Bills</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+        </div><!-- /.box-header -->
+        <div class="box-body ">
+          <div class="alert alert-success alert-dismissable" id="successMsg" style="display:none;"></div>
+          <div class="alert alert-danger alert-dismissable" id="errorMessage" style="display:none;"></div>
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th>Bill No:</th>
+                <th>Customer Name</th>
+                <th>Hotel</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+              <tr ng-show="bills.length > 0" ng-repeat="p in bills ">
+                <td>{{p.billNo}}</td>
+                <td>{{p.customerName}}</td>
+                <td>{{p.hotelName}}</td>
+                <td width="30%" style="word-break: break-all;" ng-if="p.address != 'N/A' ">{{p.address}}</td>
+                <td width="30%" style="word-break: break-all;" ng-if="p.address== 'N/A' "></td>
+                <td>
+                  <a href="javascript:;" ng-click="editBillForm(p)" ><i class="fa fa-pencil-square-o"></i> Edit</a>
+                  <a href="javascript:;" ng-click="openPrintBill(p)" ><i class="fa fa-minus-square-o"></i> Generate Bill</a>
+                </td>
+              </tr>
+              <tr ng-show="bills.length == 0">
+                <td colspan="5" style="text-align: center;"><b>No Bills created yet.</b></td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+        <div class="overlay" ng-show="loadingState">
+          <i class="fa fa-refresh fa-spin"></i>
+        </div>
+        <div class="box-footer clearfix">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
